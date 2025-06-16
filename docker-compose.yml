@@ -1,0 +1,20 @@
+services:
+  authjs-docker-test:
+    build: .
+    environment:
+      - AUTH_GITHUB_ID="Ov23liYanwbGGhiWBSGz"
+      - AUTH_GITHUB_SECRET="f448f8eb8beb07d62eae5a47c0a2dc01637f632e"
+      - AUTH_SECRET="MIecwuldGm8rWQ9EN/YgBk8c69GJaYEconpSfxQH49c="
+      - AUTH_URL=http://localhost:3000/auth
+    ports:
+      - "3000:3000"
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - '27017:27017'
+
